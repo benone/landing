@@ -1,6 +1,6 @@
 javascript:
-  document.brand_id = #{params[:brand_id] || 'null'};
-  document.category_id = #{params[:category_id] || 'null'};
+  document.brand_id = #{params[:brand_id].presence || 'null'};
+  document.category_id = #{params[:category_id].presence || 'null'};
 .row
   / .col-md-3
     .bs-sidebar
