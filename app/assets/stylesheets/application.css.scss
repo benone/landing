@@ -75,10 +75,16 @@
   }
   @media (min-width: 800px) {
     .col-md-3 .item {
-      min-height: 352px;
+      min-height: 282px;
       .image {
-         min-height: 285px;
+         min-height: 215px;
        }
+    }
+  }
+  @media (max-width: 800px){
+    .discount {
+      padding: 2px 3px;
+      font-size: 0.7em;
     }
   }
 }
