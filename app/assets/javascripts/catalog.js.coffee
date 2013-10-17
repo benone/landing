@@ -76,6 +76,9 @@ initItems = (page) ->
 $ ->
   initCategories()
   initItems(1)
+  
+
+  
   $(".show-more").on 'click', (e) ->
     initItems($(this).data('page'))
     $(this).find("a").text("Загрузка...").addClass("disabled")
