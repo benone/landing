@@ -39,6 +39,7 @@ initCategories = ->
 initItems = (page) ->
   if page == 1
     $("#items").html("")
+    $(".show-more").addClass("hidden")
   $.ajax {
     url: HOST + '/api/marketplace/items.json', 
     data: {
