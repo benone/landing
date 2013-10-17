@@ -1,0 +1,19 @@
+javascript:
+  document.brand_id = #{params[:brand_id] || 'null'};
+  document.category_id = #{params[:category_id] || 'null'};
+.row
+  / .col-md-3
+    .bs-sidebar
+      ul.nav.bs-sidenav#categories
+      
+  .col-md-12
+    .items-container
+      h1
+      .row-fluid#items
+
+      .show-more.hidden.centered
+        br
+        br
+        = link_to "Показать еще", "#", :class => "btn btn-default btn-success btn-lg", :data => { :page => 1 }
+        br
+        br
