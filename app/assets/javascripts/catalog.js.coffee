@@ -1,37 +1,47 @@
 HOST = 'http://shmoter.ru'
+HOST = 'http://127.0.0.1:3001'
 initCategories = -> 
   $.ajax {
     url: HOST + '/api/marketplace/filters.json?callback=', 
     dataType: 'jsonp',
+    data: {
+      brand_id: document.brand_id
+    },
     success: (data) -> 
       categories = data.categories
       for category in categories
-        li = $("<li/>")
-        a = $("<a>").text(category[0]).attr("href", '#')
+        li = $("<li/>").addClass("category_" + category[1]).addClass("depth_" + category[3])
+        a = $("<a>").text(category[0]).attr("href", '#').data("id", category[1])
         a.appendTo li
-        ul = $("<ul>").addClass("category_" + category[1]).addClass("nav")
-        ul.appendTo li
-
+        
+        
         if category[2]
-          li.appendTo $(".category_" + category[2])
+          targetLi = $(".category_" + category[2])
+          
+          if targetLi.find("> .nav").length == 0
+            ul = $("<ul>").addClass("nav")
+            ul.appendTo targetLi
+
+          li.appendTo(targetLi.find("> .nav"))
+
         else
           li.appendTo $("#categories")
 
       $("#categories li a").on 'click', (e) ->
         e.preventDefault()
-        $(this).parent().toggleClass("active")
-        $.ajax {
-          url: HOST + '/api/marketplace/items.json?callback=', 
-          dataType: 'jsonp',
-          success: (data) ->
-            console.log(data)
-        }
+        $(this).parent().parent().find("> li").removeClass('active')
+        $(this).parent().find("li").removeClass('active')
+        $(this).parent().addClass("active")
 
+        document.category_id = $(this).data("id")
+        initItems(1)
   }
   
 initItems = (page) ->
+  if page == 1
+    $("#items").html("")
   $.ajax {
-    url: HOST + '/api/marketplace/items.json?callback=', 
+    url: HOST + '/api/marketplace/items.json', 
     data: {
       category_id: document.category_id,
       brand_id: document.brand_id,
@@ -63,7 +73,7 @@ initItems = (page) ->
   }
 
 $ ->
-  # initCategories()
+  initCategories()
   initItems(1)
   $(".show-more").on 'click', (e) ->
     initItems($(this).data('page'))

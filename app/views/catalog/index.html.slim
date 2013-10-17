@@ -2,11 +2,11 @@ javascript:
   document.brand_id = #{params[:brand_id].presence || 'null'};
   document.category_id = #{params[:category_id].presence || 'null'};
 .row
-  / .col-md-3
+  .col-md-3
     .bs-sidebar
       ul.nav.bs-sidenav#categories
       
-  .col-md-12
+  .col-md-9
     .items-container
       h1
       .row-fluid#items

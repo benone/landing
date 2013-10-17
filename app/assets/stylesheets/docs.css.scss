@@ -484,6 +484,22 @@ body {
   padding-left: 60px;
   font-size: 90%;
 }
+
+.bs-sidebar .nav .nav .nav .nav > li > a {
+  padding-top:    3px;
+  padding-bottom: 3px;
+  padding-left: 90px;
+  font-size: 90%;
+}
+
+
+.bs-sidebar .nav .nav .nav .nav .nav > li > a {
+  padding-top:    3px;
+  padding-bottom: 3px;
+  padding-left: 120px;
+  font-size: 90%;
+}
+
 /* Show and affix the side nav when space allows it */
 @media screen and (min-width: 992px) {
   .bs-sidebar .nav > .active > ul {
