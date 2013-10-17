@@ -45,5 +45,6 @@ gem 'unicorn'
 gem 'capistrano', group: :development
 gem 'capistrano_colors', group: :development
 gem 'rvm-capistrano', '1.2.7', group: :development
+gem 'thor'
 # Use debugger
 # gem 'debugger', group: [:development, :test]

@@ -154,6 +154,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.0)
   slim (~> 2)
   sqlite3
+  thor
   turbolinks
   uglifier (>= 1.3.0)
   unicorn
