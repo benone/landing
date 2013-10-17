@@ -26,6 +26,10 @@ initCategories = ->
         else
           li.appendTo $("#categories")
 
+        if category[1] == document.category_id
+          li.addClass("active")
+          li.parents("li").addClass("active")
+
       $("#categories li a").on 'click', (e) ->
         e.preventDefault()
         $(this).parent().parent().find("> li").removeClass('active')
