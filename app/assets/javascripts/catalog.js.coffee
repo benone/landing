@@ -1,5 +1,4 @@
 HOST = 'http://shmoter.ru'
-HOST = 'http://127.0.0.1:3001'
 initCategories = -> 
   $.ajax {
     url: HOST + '/api/marketplace/filters.json?callback=', 
@@ -50,6 +49,7 @@ initItems = (page) ->
     dataType: 'jsonp',
     success: (data) -> 
       $("h1").text(data.title)
+      document.title = data.title
       items = data.items
       if data.next_page
         $(".show-more").removeClass("hidden")
