@@ -25,6 +25,7 @@
 }
 
 .items-container {
+  min-width: 720px;
   .col-md-3 {
     padding-left: 7px;
     padding-right: 7px;
@@ -77,11 +78,17 @@
     .col-md-3 .item {
       min-height: 282px;
       .image {
-         min-height: 215px;
+         min-height: 258px;
        }
     }
   }
   @media (max-width: 800px){
+    .col-md-3 .item {
+      min-height: 282px;
+      .image {
+         min-height: 258px;
+       }
+    }
     .discount {
       padding: 2px 3px;
       font-size: 0.7em;
